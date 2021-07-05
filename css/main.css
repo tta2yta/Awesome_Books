@@ -1,0 +1,9 @@
+.book_list_main{
+    margin-bottom: 10px;
+}
+
+.book_list_sub {
+    margin-bottom: 10px;
+    border-bottom:  1px solid black;
+    width: 400px;
+}
