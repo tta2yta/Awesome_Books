@@ -48,7 +48,6 @@ const addBook = document .querySelector("#save").addEventListener("click", funct
     } else {
       const book = { title: title1, author: author1 };
      const last_index=bookArr.push(book);
-      console.log(bookArr);
       create_element(title1, author1, last_index)
     }
   });
