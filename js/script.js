@@ -37,7 +37,7 @@ function list(bookArr) {
     create_element(element.title, element.author, index)
   });
 
-  document.getElementById("main").appendChild(book_list_main);
+  document.getElementById("container").appendChild(book_list_main);
 }
 
 const addBook = document .querySelector("#save").addEventListener("click", function () {
