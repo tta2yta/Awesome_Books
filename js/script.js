@@ -25,6 +25,7 @@ function list(bookArr){
      book_author.textContent=element.author
      let btn_remove= document.createElement('button')
      btn_remove.textContent="Remove"
+     btn_remove.className='btn_remove'
      book_list_sub.appendChild(book_title)
      book_list_sub.appendChild(book_author)
      book_list_sub.appendChild(btn_remove)
