@@ -1,53 +1,45 @@
-"use strict";
+const bookArr = [
+  { title: 'Moving on', author: 'Tedros' },
+  { title: 'Microverse', author: 'Nkiruka' },
+];
+const bookListMain = document.createElement('div');
+bookListMain.className = 'book_list_main';
 
-const Book = function (title, author) {
-  this.title = title;
-  this.author = author;
+const createElement = function (title, author, index) {
+  const bookListSub = document.createElement('div');
+  bookListSub.id = index;
+  bookListSub.className = 'book_list_sub';
+  const bookTtitle = document.createElement('div');
+  const bookAuthor = document.createElement('div');
+  bookTtitle.textContent = title;
+  bookAuthor.textContent = author;
+  const btnRemove = document.createElement('button');
+  btnRemove.textContent = 'Remove';
+  btnRemove.className = 'btn_remove';
+  bookListSub.appendChild(bookTtitle);
+  bookListSub.appendChild(bookAuthor);
+  bookListSub.appendChild(btnRemove);
+  bookListMain.appendChild(bookListSub);
 };
 
-const bookArr = [
-  { title: "Moving on", author: "Tedros" },
-  { title: "Microverse", author: "Nkiruka" },
-];
-const book_list_main = document.createElement("div");
-  book_list_main.className = "book_list_main";
+function list(bookArr) {
+  bookArr.forEach((element, index) => {
+    createElement(element.title, element.author, index);
+  });
 
-  const create_element= function(title, author, index){
-    let book_list_sub = document.createElement("div");
-    book_list_sub.id = index;
-    book_list_sub.className = "book_list_sub";
-    let book_title = document.createElement("div");
-    let book_author = document.createElement("div");
-    book_title.textContent = title;
-    book_author.textContent = author;
-    let btn_remove = document.createElement("button");
-    btn_remove.textContent = "Remove";
-    btn_remove.className = "btn_remove";
-    book_list_sub.appendChild(book_title);
-    book_list_sub.appendChild(book_author);
-    book_list_sub.appendChild(btn_remove);
-    book_list_main.appendChild(book_list_sub);
-  }
+  document.getElementById('container').appendChild(bookListMain);
+}
 
 list(bookArr);
 
-function list(bookArr) {
-  
-  bookArr.forEach((element, index) => {
-    create_element(element.title, element.author, index)
-  });
-
-  document.getElementById("container").appendChild(book_list_main);
-}
-
-const addBook = document .querySelector("#save").addEventListener("click", function () {
-    const title1 = document.querySelector("#title").value;
-    const author1 = document.querySelector("#author").value;
-    if (title1 == "" && author1 == "") {
-      alert("Please enter the title and author");
-    } else {
-      const book = { title: title1, author: author1 };
-     const last_index=bookArr.push(book);
-      create_element(title1, author1, last_index)
-    }
-  });
+document.querySelector('#save').addEventListener('click', () => {
+  const title1 = document.querySelector('#title').value;
+  const author1 = document.querySelector('#author').value;
+  if (title1 === '' && author1 === '') {
+    alert('Please enter the title and author');
+  } else {
+    const book = { title: title1, author: author1 };
+    const lastIndex = bookArr.push(book);
+    createElement(title1, author1, lastIndex);
+  }
+});
