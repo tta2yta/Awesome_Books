@@ -68,9 +68,6 @@ myBook.list();
 btn.addEventListener('click', () => {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
-  if (title === '' || author === '') {
-    alert('Please Provide value for Author and Tiltle');
-  } else {
-    myBook.addBook(title, author);
-  }
+
+  myBook.addBook(title, author);
 });
