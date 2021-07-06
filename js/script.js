@@ -27,7 +27,7 @@ const createElement = (title, author, index) => {
   bookListMain.appendChild(bookListSub);
 };
 
-btn.addEventListener('click', () => {
+function addBook () {
   const title = document.getElementById('title');
   const author = document.getElementById('author');
 
@@ -39,8 +39,9 @@ btn.addEventListener('click', () => {
 
   createElement(titleInput, authorInput, bookArrSize);
   localStorage.setItem('Books', JSON.stringify(bookArr));
-  window.location.reload();
-});
+}
+
+btn.addEventListener('click', addBook)
 
 function list(arr) {
   arr.forEach((element, index) => {
@@ -61,5 +62,6 @@ document.addEventListener('click', (e) => {
   localStorage.setItem('Books', JSON.stringify(books));
   window.location.reload();
 });
+
 
 list(bookArr);
