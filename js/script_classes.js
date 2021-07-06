@@ -44,15 +44,4 @@ const container = document.getElementById('container');
 
 myBook.list(container);
 
-document.addEventListener('click', e => {
-  const btnRemoveId = e.target.id;
-  const parentId = btnRemoveId.charAt(btnRemoveId.length - 1);
-  const parent = document.getElementById(parentId);
-
-  parent.remove();
-  const index = Number(parentId);
-
-  const books = bookArr.filter((book, i) => i !== index);
-  localStorage.setItem('Books', JSON.stringify(books));
-  window.location.reload();
-});
+myBook.addBook()
