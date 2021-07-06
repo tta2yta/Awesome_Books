@@ -49,18 +49,17 @@ function list(arr) {
   container.appendChild(bookListMain);
 }
 
-document.addEventListener('click', e => {
+document.addEventListener('click', (e) => {
   const btnRemoveId = e.target.id;
   const parentId = btnRemoveId.charAt(btnRemoveId.length - 1);
   const parent = document.getElementById(parentId);
-  if (e.target && e.target.classList.contains('btn_remove')) {
-    parent.remove();
-    const index = Number(parentId);
 
-    const books = bookArr.filter((book, i) => i !== index);
-    localStorage.setItem('Books', JSON.stringify(books));
-    window.location.reload();
-  }
+  parent.remove();
+  const index = Number(parentId);
+
+  const books = bookArr.filter((book, i) => i !== index);
+  localStorage.setItem('Books', JSON.stringify(books));
+  window.location.reload();
 });
 
 list(bookArr);
