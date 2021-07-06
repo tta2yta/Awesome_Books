@@ -3,28 +3,12 @@ const container = document.getElementById('container');
 
 const bookArr = JSON.parse(localStorage.getItem('Books')) || [];
 
-btn.addEventListener("click", () => {
-  const title = document.getElementById("title");
-  const author = document.getElementById("author");
-
-  const titleInput = title.value;
-  const authorInput = author.value;
-
-  const book = { title: titleInput, author: authorInput };
-  const bookArrSize = bookArr.push(book);
-
-  createElement(titleInput, authorInput, bookArrSize);
-  localStorage.setItem("Books", JSON.stringify(bookArr));
-  // location.reload();
-});
-
-const bookListMain = document.createElement("div");
-bookListMain.className = "book_list_main";
 const bookListMain = document.createElement('div');
+bookListMain.className = 'book_list_main';
 bookListMain.className = 'book_list_main';
 
 const createElement = function (title, author, index) {
-  const btnId = 'btn_remove' + index;
+  const btnId = `btn_remove${index}`;
   const bookListSub = document.createElement('div');
   bookListSub.id = index;
   bookListSub.className = 'book_list_sub';
@@ -42,6 +26,21 @@ const createElement = function (title, author, index) {
   bookListSub.appendChild(btnRemove);
   bookListMain.appendChild(bookListSub);
 };
+
+btn.addEventListener('click', () => {
+  const title = document.getElementById('title');
+  const author = document.getElementById('author');
+
+  const titleInput = title.value;
+  const authorInput = author.value;
+
+  const book = { title: titleInput, author: authorInput };
+  const bookArrSize = bookArr.push(book);
+
+  createElement(titleInput, authorInput, bookArrSize);
+  localStorage.setItem('Books', JSON.stringify(bookArr));
+  // location.reload();
+});
 
 function list(arr) {
   arr.forEach((element, index) => {
@@ -64,15 +63,14 @@ btn.addEventListener('click', () => {
   localStorage.setItem('Books', JSON.stringify(bookArr));
 });
 
-document.addEventListener('click', function (e) {
+document.addEventListener('click', (e) => {
   const btnRemoveId = e.target.id;
   const parentId = btnRemoveId.charAt(btnRemoveId.length - 1);
   const parent = document.getElementById(parentId);
   if (e.target && e.target.classList.contains('btn_remove')) {
     parent.remove();
-    index = Number(parentId) + 1;
-    bookArr.splice(parentId, 1)
-    localStorage.setItem("Books", JSON.stringify(bookArr));
+    bookArr.splice(parentId, 1);
+    localStorage.setItem('Books', JSON.stringify(bookArr));
   }
 });
 
