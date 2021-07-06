@@ -1,5 +1,5 @@
 class Book{
-    constructor(){
+    constructor(author=null, title=null){
         this.arrBook=[{author:'aaa', title:'book1'}]
     }
 
