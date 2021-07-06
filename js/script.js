@@ -49,21 +49,7 @@ function list(arr) {
   container.appendChild(bookListMain);
 }
 
-btn.addEventListener('click', () => {
-  const title = document.getElementById('title');
-  const author = document.getElementById('author');
-
-  const titleInput = title.value;
-  const authorInput = author.value;
-
-  const book = { title: titleInput, author: authorInput };
-  const bookArrSize = bookArr.push(book);
-
-  createElement(titleInput, authorInput, bookArrSize);
-  localStorage.setItem('Books', JSON.stringify(bookArr));
-});
-
-document.addEventListener('click', (e) => {
+document.addEventListener('click', e => {
   const btnRemoveId = e.target.id;
   const parentId = btnRemoveId.charAt(btnRemoveId.length - 1);
   const parent = document.getElementById(parentId);
