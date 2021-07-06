@@ -30,7 +30,19 @@ class Book {
     bookListMain.appendChild(bookListSub);
   }
 
-  addBook() {}
+  addBook() {
+    const title = document.getElementById('title');
+    const author = document.getElementById('author');
+  
+    const titleInput = title.value;
+    const authorInput = author.value;
+  
+    const book = { title: titleInput, author: authorInput };
+    const bookArrSize = bookArr.push(book);
+  
+    createElement(titleInput, authorInput, bookArrSize);
+    localStorage.setItem('Books', JSON.stringify(bookArr));
+  }
 }
 
 let myBook = new Book();
@@ -44,4 +56,3 @@ const container = document.getElementById('container');
 
 myBook.list(container);
 
-myBook.addBook()
