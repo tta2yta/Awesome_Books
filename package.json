@@ -1,0 +1,33 @@
+{
+  "name": "awesome_books",
+  "version": "1.0.0",
+  "description": "- HTML5\r - Javascript",
+  "main": "script.js",
+  "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.30.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "has-unicode": "^2.0.1",
+    "hint": "^6.1.4",
+    "postcss": "^8.1.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.19.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enkog/Awesome_Books.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enkog/Awesome_Books/issues"
+  },
+  "homepage": "https://github.com/enkog/Awesome_Books#readme"
+}
