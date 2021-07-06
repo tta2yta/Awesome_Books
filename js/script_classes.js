@@ -24,6 +24,7 @@ class Book {
 
     btnRemove.id = btnId;
     btnRemove.className = 'btn_remove';
+    btnRemove.addEventListener('click', this.removeBook.bind(this, index));
     bookListSub.appendChild(bookTitle);
     bookListSub.appendChild(bookAuthor);
     bookListSub.appendChild(btnRemove);
@@ -32,16 +33,20 @@ class Book {
 
   addBook(title, author) {
     const book = { title: title, author: author };
-    const bookArrSize = this.arrBook.push(book);
-  
+    const bookArrSize = this.arrBook.push(book);  
     this.createElement(title, author, bookArrSize);
     localStorage.setItem('Books', JSON.stringify(this.arrBook));
   }
 
-  removeBook(){
-      
+  removeBook(index){
+    const books = this.arrBook.filter((book, i) => i !== index);
+    localStorage.setItem('Books', JSON.stringify(books));
+    const parent = document.getElementById(index);
+    parent.parentNode.removeChild(parent);
+    
   }
 }
+
 
 let myBook = new Book();
 
