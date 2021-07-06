@@ -6,8 +6,8 @@ const bookArr = JSON.parse(localStorage.getItem('Books')) || [];
 const bookListMain = document.createElement('div');
 bookListMain.className = 'book_list_main';
 
-const createElement = function (title, author, index) {
-  const btnId = 'btn_remove' + index;
+const createElement = (title, author, index) => {
+  const btnId = `btn_remove${index}`;
   const bookListSub = document.createElement('div');
   bookListSub.id = index;
   bookListSub.className = 'book_list_sub';
@@ -47,13 +47,17 @@ btn.addEventListener('click', () => {
   localStorage.setItem('Books', JSON.stringify(bookArr));
 });
 
-document.addEventListener('click', function (e) {
+document.addEventListener('click', (e) => {
   const btnRemoveId = e.target.id;
   const parentId = btnRemoveId.charAt(btnRemoveId.length - 1);
   const parent = document.getElementById(parentId);
   if (e.target && e.target.classList.contains('btn_remove')) {
     parent.remove();
-    index = Number(parentId) + 1;
+    const index = Number(parentId);
+
+    const books = bookArr.filter((book, i) => i !== index);
+    localStorage.setItem('Books', JSON.stringify(books));
+    window.location.reload();
   }
 });
 
