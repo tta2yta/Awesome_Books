@@ -16,10 +16,12 @@ class Book {
   }
 
   list() {
-    this.arrBook.forEach((element, index) => {
-      this.createElement(element.title, element.author, index);
-    });
-    container.appendChild(bookListMain);
+    if (this.arrBook !== null) {
+      this.arrBook.forEach((element, index) => {
+        this.createElement(element.title, element.author, index);
+      });
+      container.appendChild(bookListMain);
+    }
   }
 
   createElement(title, author, index) {
