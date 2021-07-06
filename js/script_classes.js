@@ -30,18 +30,12 @@ class Book {
     bookListMain.appendChild(bookListSub);
   }
 
-  addBook() {
-    const title = document.getElementById('title');
-    const author = document.getElementById('author');
+  addBook(title, author) {
+    const book = { title: title, author: author };
+    const bookArrSize = this.arrBook.push(book);
   
-    const titleInput = title.value;
-    const authorInput = author.value;
-  
-    const book = { title: titleInput, author: authorInput };
-    const bookArrSize = bookArr.push(book);
-  
-    createElement(titleInput, authorInput, bookArrSize);
-    localStorage.setItem('Books', JSON.stringify(bookArr));
+    this.createElement(title, author, bookArrSize);
+    localStorage.setItem('Books', JSON.stringify(this.arrBook));
   }
 }
 
@@ -55,4 +49,9 @@ const btn = document.getElementById('save');
 const container = document.getElementById('container');
 
 myBook.list(container);
+btn.addEventListener('click', ()=>{
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    myBook.addBook(title, author)
+});
 
