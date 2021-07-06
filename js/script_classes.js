@@ -1,37 +1,39 @@
-class Book{
-    constructor(author=null, title=null){
-        this.arrBook=[{author:'aaa', title:'book1'}]
-    }
+class Book {
+  constructor(author = null, title = null) {
+    this.arrBook = [{ author: 'aaa', title: 'book1' }];
+  }
 
-      list(container){
-        this.arrBook.forEach((element, index) => {
-            this.createElement(element.title, element.author, index);
-          });
-          container.appendChild(bookListMain);
-    }
+  list(container) {
+    this.arrBook.forEach((element, index) => {
+      this.createElement(element.title, element.author, index);
+    });
+    container.appendChild(bookListMain);
+  }
 
-    createElement (title, author, index){
-        const btnId = `btn_remove${index}`;
-        const bookListSub = document.createElement('div');
-        bookListSub.id = index;
-        bookListSub.className = 'book_list_sub';
-        const bookTitle = document.createElement('div');
-        const bookAuthor = document.createElement('div');
-        bookTitle.textContent = title;
-        bookAuthor.textContent = author;
-        const btnRemove = document.createElement('button');
-        btnRemove.textContent = 'Remove';
-      
-        btnRemove.id = btnId;
-        btnRemove.className = 'btn_remove';
-        bookListSub.appendChild(bookTitle);
-        bookListSub.appendChild(bookAuthor);
-        bookListSub.appendChild(btnRemove);
-        bookListMain.appendChild(bookListSub);
-    }
+  createElement(title, author, index) {
+    const btnId = `btn_remove${index}`;
+    const bookListSub = document.createElement('div');
+    bookListSub.id = index;
+    bookListSub.className = 'book_list_sub';
+    const bookTitle = document.createElement('div');
+    const bookAuthor = document.createElement('div');
+    bookTitle.textContent = title;
+    bookAuthor.textContent = author;
+    const btnRemove = document.createElement('button');
+    btnRemove.textContent = 'Remove';
+
+    btnRemove.id = btnId;
+    btnRemove.className = 'btn_remove';
+    bookListSub.appendChild(bookTitle);
+    bookListSub.appendChild(bookAuthor);
+    bookListSub.appendChild(btnRemove);
+    bookListMain.appendChild(bookListSub);
+  }
+
+  addBook() {}
 }
 
-let myBook=new Book()
+let myBook = new Book();
 
 const bookListMain = document.createElement('div');
 bookListMain.className = 'book_list_main';
@@ -40,4 +42,17 @@ bookListMain.className = 'book_list_main';
 const btn = document.getElementById('save');
 const container = document.getElementById('container');
 
-myBook.list(container)
+myBook.list(container);
+
+document.addEventListener('click', e => {
+  const btnRemoveId = e.target.id;
+  const parentId = btnRemoveId.charAt(btnRemoveId.length - 1);
+  const parent = document.getElementById(parentId);
+
+  parent.remove();
+  const index = Number(parentId);
+
+  const books = bookArr.filter((book, i) => i !== index);
+  localStorage.setItem('Books', JSON.stringify(books));
+  window.location.reload();
+});
