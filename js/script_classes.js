@@ -10,6 +10,9 @@ class Book {
 
   getBooks() {
     this.arrBook = JSON.parse(localStorage.getItem('Books'));
+    if (this.arrBook === null) {
+      this.arrBook = [];
+    }
   }
 
   list() {
@@ -63,5 +66,9 @@ myBook.list();
 btn.addEventListener('click', () => {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
-  if (title === '' || author === '') { alert('Please Provide value for Author and Tiltle'); } else { myBook.addBook(title, author); }
+  if (title === '' || author === '') {
+    alert('Please Provide value for Author and Tiltle');
+  } else {
+    myBook.addBook(title, author);
+  }
 });
