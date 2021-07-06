@@ -15,7 +15,7 @@ btn.addEventListener("click", () => {
 
   createElement(titleInput, authorInput, bookArrSize);
   localStorage.setItem("Books", JSON.stringify(bookArr));
-  location.reload();
+  // location.reload();
 });
 
 const bookListMain = document.createElement("div");
@@ -54,6 +54,8 @@ document.addEventListener("click", function (e) {
     var parent = document.getElementById(parentId);
     parent.remove();
     index = Number(parentId) + 1;
+    bookArr.splice(parentId, 1)
+    localStorage.setItem("Books", JSON.stringify(bookArr));
   }
 });
 
