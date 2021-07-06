@@ -45,4 +45,14 @@ function list(arr) {
   container.appendChild(bookListMain);
 }
 
+document.addEventListener("click", function (e) {
+  if (e.target && e.target.classList.contains("btn_remove")) {
+    var btnRemoveId = e.target.id;
+    var parentId = btnRemoveId.charAt(btnRemoveId.length - 1);
+    var parent = document.getElementById(parentId);
+    parent.remove();
+    index = Number(parentId) + 1;
+  }
+});
+
 list(bookArr);
