@@ -1,11 +1,11 @@
 class Book{
     constructor(){
-        this.arrBook=[]
+        this.arrBook=[{author:'aaa', title:'book1'}]
     }
 
-      list(){
-        arrBook.forEach((element, index) => {
-            createElement(element.title, element.author, index);
+      list(container){
+        this.arrBook.forEach((element, index) => {
+            this.createElement(element.title, element.author, index);
           });
           container.appendChild(bookListMain);
     }
@@ -30,3 +30,14 @@ class Book{
         bookListMain.appendChild(bookListSub);
     }
 }
+
+let myBook=new Book()
+
+const bookListMain = document.createElement('div');
+bookListMain.className = 'book_list_main';
+bookListMain.className = 'book_list_main';
+
+const btn = document.getElementById('save');
+const container = document.getElementById('container');
+
+myBook.list(container)
