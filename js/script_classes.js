@@ -37,6 +37,10 @@ class Book {
     this.createElement(title, author, bookArrSize);
     localStorage.setItem('Books', JSON.stringify(this.arrBook));
   }
+
+  removeBook(){
+      
+  }
 }
 
 let myBook = new Book();
