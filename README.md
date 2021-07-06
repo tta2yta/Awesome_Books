@@ -14,7 +14,7 @@
 
 ## Live Demo
 
-<a href="https://rawcdn.githack.com/enkog/Awesome_Books/6b6a4372982764ebed07e036524e8be1046a88d9/index.html">Live version</a>
+<a href="https://rawcdn.githack.com/enkog/Awesome_Books/312cf8fe2bd27643d8c44d562d4fb72d8136ea7d/index.html">Live version</a>
 
 ## ✒️ Author <a name = "author"></a>
 
