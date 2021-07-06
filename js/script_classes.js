@@ -13,10 +13,13 @@ class Book {
   }
 
   list() {
+      console.log(this.arrBook)
+      if (this.arrBook !== null){
     this.arrBook.forEach((element, index) => {
       this.createElement(element.title, element.author, index);
     });
     container.appendChild(bookListMain);
+}
   }
 
   createElement(title, author, index) {
