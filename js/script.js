@@ -7,6 +7,13 @@ const bookListMain = document.createElement('div');
 bookListMain.className = 'book_list_main';
 bookListMain.className = 'book_list_main';
 
+function removeBook(index) {
+  const books = bookArr.filter((book, i) => i !== index);
+  localStorage.setItem('Books', JSON.stringify(books));
+  const parent = document.getElementById(index);
+  parent.parentNode.removeChild(parent);
+}
+
 const createElement = (title, author, index) => {
   const btnId = `btn_remove${index}`;
   const bookListSub = document.createElement('div');
@@ -18,7 +25,7 @@ const createElement = (title, author, index) => {
   bookAuthor.textContent = author;
   const btnRemove = document.createElement('button');
   btnRemove.textContent = 'Remove';
-
+  btnRemove.addEventListener('click', removeBook.bind(null, index));
   btnRemove.id = btnId;
   btnRemove.className = 'btn_remove';
   bookListSub.appendChild(bookTitle);
@@ -27,7 +34,7 @@ const createElement = (title, author, index) => {
   bookListMain.appendChild(bookListSub);
 };
 
-btn.addEventListener('click', () => {
+function addBook() {
   const title = document.getElementById('title');
   const author = document.getElementById('author');
 
@@ -39,8 +46,9 @@ btn.addEventListener('click', () => {
 
   createElement(titleInput, authorInput, bookArrSize);
   localStorage.setItem('Books', JSON.stringify(bookArr));
-  window.location.reload();
-});
+}
+
+btn.addEventListener('click', addBook);
 
 function list(arr) {
   arr.forEach((element, index) => {
@@ -48,18 +56,4 @@ function list(arr) {
   });
   container.appendChild(bookListMain);
 }
-
-document.addEventListener('click', (e) => {
-  const btnRemoveId = e.target.id;
-  const parentId = btnRemoveId.charAt(btnRemoveId.length - 1);
-  const parent = document.getElementById(parentId);
-
-  parent.remove();
-  const index = Number(parentId);
-
-  const books = bookArr.filter((book, i) => i !== index);
-  localStorage.setItem('Books', JSON.stringify(books));
-  window.location.reload();
-});
-
 list(bookArr);
