@@ -1,7 +1,7 @@
 const btn = document.getElementById("save");
 const container = document.getElementById("container");
 
-let bookArr = [];
+let bookArr = JSON.parse(localStorage.getItem("Books")) || [];
 
 btn.addEventListener("click", () => {
   const title = document.getElementById("title");
@@ -14,6 +14,8 @@ btn.addEventListener("click", () => {
   const bookArrSize = bookArr.push(book);
 
   createElement(titleInput, authorInput, bookArrSize);
+  localStorage.setItem("Books", JSON.stringify(bookArr));
+  location.reload();
 });
 
 const bookListMain = document.createElement("div");
