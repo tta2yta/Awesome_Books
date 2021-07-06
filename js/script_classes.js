@@ -3,6 +3,10 @@ class Book {
     this.arrBook = [{ author: 'aaa', title: 'book1' }];
   }
 
+  getBooks(){
+      this.arrBook=JSON.parse(localStorage.getItem('Books'))
+  }
+
   list(container) {
     this.arrBook.forEach((element, index) => {
       this.createElement(element.title, element.author, index);
@@ -47,8 +51,8 @@ class Book {
   }
 }
 
-
 let myBook = new Book();
+myBook.getBooks()
 
 const bookListMain = document.createElement('div');
 bookListMain.className = 'book_list_main';
