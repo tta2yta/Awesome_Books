@@ -20,10 +20,11 @@
 - Linkedin: [@enkog](https://www.linkedin.com/in/enkog/)
 - Twitter: [@enkodes](https://twitter.com/enkodes)
 
-👤 **Tedros**
+👤 **Tedrso Tesfay**
 
-- Github: []()
-- Linkedin: []()
+- Github: [@tta2yta](https://github.com/tta2yta)
+- Twitter: [@Tedros12859799](https://twitter.com/Tedros12859799)
+- Linkedin: [tedros-tesfay-489422111](https://www.linkedin.com/in/tedros-tesfay-489422111/)
 
 ## Acknowledgements
 
