@@ -10,20 +10,24 @@ body {
   font-size: 20px;
 }
 
-h3 {
+h2 {
   text-align: center;
   margin-top: 50px;
 }
-
-/* .main {
-  margin: 5% 30%;
-} */
+h3{
+    text-align: center;
+  margin-top: 20px;
+}
 
 #container{
     max-width: 500px;
     margin: auto;
 }
-
+.line{
+    border-bottom: 1px solid black;
+    width: 100px;
+    margin: 20px auto;
+}
 .book_list_main {
   margin-bottom: 10px;
   border: 1px solid black;
@@ -53,4 +57,12 @@ h3 {
 form{
 margin: auto;
 max-width: 200px;
+}
+
+input[type=text] {
+    width: 100%;
+}
+
+.save{
+    float: right;
 }
