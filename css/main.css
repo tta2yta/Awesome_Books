@@ -40,3 +40,8 @@ h1 {
 .btn-remove {
   display: inline;
 }
+
+.book_list_main > div:nth-of-type(odd) {
+  background-color: #e9e9f9;
+  padding: 10px;
+}
