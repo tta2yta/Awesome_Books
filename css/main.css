@@ -10,29 +10,35 @@ body {
   font-size: 20px;
 }
 
-h1 {
+h3 {
   text-align: center;
+  margin-top: 50px;
 }
 
-.main {
-  margin: 50px;
+/* .main {
+  margin: 5% 30%;
+} */
+
+#container{
+    max-width: 500px;
+    margin: auto;
 }
 
 .book_list_main {
   margin-bottom: 10px;
+  border: 1px solid black;
+  padding: 0;
 }
 
 .book_list_sub {
-  margin-bottom: 10px;
-  position: relative;
+  /* margin-bottom: 10px; */
+  padding: 7px;
 }
 
 .btn_remove {
-  margin-bottom: 10px;
-  margin-left: 100px;
-  padding: 5px;
-  position: absolute;
-  left: 500px;
+  float: right;
+  padding: 3px;
+  margin-top: -2px;
 }
 
 .book-title,
@@ -43,5 +49,8 @@ h1 {
 
 .book_list_main > div:nth-of-type(odd) {
   background-color: #e9e9f9;
-  padding: 10px;
+}
+form{
+margin: auto;
+max-width: 200px;
 }
