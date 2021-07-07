@@ -31,3 +31,9 @@ h1 {
 .btn_remove {
   margin-bottom: 10px;
 }
+
+.book-title,
+.book-author,
+.btn-remove {
+  display: inline;
+}

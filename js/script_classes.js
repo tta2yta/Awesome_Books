@@ -31,7 +31,9 @@ class Book {
     bookListSub.className = 'book_list_sub';
     const bookTitle = document.createElement('div');
     const bookAuthor = document.createElement('div');
-    bookTitle.textContent = title;
+    bookTitle.className = 'book-title';
+    bookAuthor.className = 'book-author';
+    bookTitle.textContent = `"${title}" by `;
     bookAuthor.textContent = author;
     const btnRemove = document.createElement('button');
     btnRemove.textContent = 'Remove';
