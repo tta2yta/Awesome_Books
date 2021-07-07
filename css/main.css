@@ -24,12 +24,15 @@ h1 {
 
 .book_list_sub {
   margin-bottom: 10px;
-  border-bottom: 1px solid black;
-  width: 400px;
+  position: relative;
 }
 
 .btn_remove {
   margin-bottom: 10px;
+  margin-left: 100px;
+  padding: 5px;
+  position: absolute;
+  left: 500px;
 }
 
 .book-title,
